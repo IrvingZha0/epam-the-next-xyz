@@ -49,3 +49,17 @@ body {
   height: 60px;
   margin-bottom: 30px;
 }
+.jumbotron{
+  background-image: url("../img/11.jpg");
+  color: white;
+}
+.summary{
+  font-family: "Lucida Console","Lucida Sans Typewriter",monaco,"Bitstream Vera Sans Mono",monospace;
+}
+.date{
+  color: blue;
+}
+.author{
+  font-size: 25px;
+  font-family: Papyrus,fantasy;
+}

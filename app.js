@@ -13,11 +13,17 @@ var app = express();
 
 var api = require('./routes/api');
 
+app.use(function (req, res, next) {
+ res.locals.scripts = [];
+ next();
+});
+
+
 // setup handlebars
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-// express middleware that parser the key-value pairs sent in the request body in the format of our choosing (e.g. json) 
+// express middleware that parser the key-value pairs sent in the request body in the format of our choosing (e.g. json)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -42,10 +48,22 @@ app.get('/register', function(req, res) {
 // handle the posted registration data
 app.post('/register', function(req, res) {
 
-  // get the data out of the request (req) object 
+  // get the data out of the request (req) object
   // store the user in memory here
 
   res.redirect('/dashboard');
+});
+app.get('/article/1', function(req, res) {
+  res.locals.scripts.push('/js/showArticles.js');
+    res.render('article');
+});
+app.get('/article/2', function(req, res) {
+  res.locals.scripts.push('/js/showArticles.js');
+    res.render('article');
+});
+app.get('/article/3', function(req, res) {
+  res.locals.scripts.push('/js/showArticles.js');
+    res.render('article');
 });
 
 // respond to the get request with dashboard page (and pass in some data into the template / note this will be rendered server-side)
