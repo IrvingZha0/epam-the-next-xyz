@@ -5,15 +5,13 @@ window.onload = function() {
   }).done(function(data){
     //console.log(data);
     $.each(data, function(i, value){
-
        var url = value.url;
-
        var title = value.title;
        var summary = value.summary;
        var date = value.date;
        var author = value.author;
        var image = value.image;
-       var id = value.id;
+       var id = value._id;
 
        // for system time : var myDate = new Date(date);
        var imageTag = '<div>'+'<img src="'+image+'" width="365" height="210px">'+'</div>';

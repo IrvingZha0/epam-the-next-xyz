@@ -2,6 +2,26 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
+//mogoose
+var mongoose = require('mongoose');
+
+//connect to MongoDB
+mongoose.connect('mongodb://localhost/epam');
+
+var Schema = mongoose.Schema;
+
+var ArticleSchema = new Schema({
+    title : String,
+    url : String,
+    image : String,
+    username : String,
+    date : Date
+});
+
+mongoose.model('Article', ArticleSchema);
+var article = mongoose.model('Article');
+
+
 // include express handlebars (templating engine)
 var exphbs  = require('express-handlebars');
 
@@ -53,18 +73,13 @@ app.post('/register', function(req, res) {
 
   res.redirect('/dashboard');
 });
-app.get('/article/1', function(req, res) {
+
+var id = article._id;
+app.get('/article/id', function(req, res) {
   res.locals.scripts.push('/js/showArticles.js');
     res.render('article');
 });
-app.get('/article/2', function(req, res) {
-  res.locals.scripts.push('/js/showArticles.js');
-    res.render('article');
-});
-app.get('/article/3', function(req, res) {
-  res.locals.scripts.push('/js/showArticles.js');
-    res.render('article');
-});
+
 
 // respond to the get request with dashboard page (and pass in some data into the template / note this will be rendered server-side)
 app.get('/dashboard', function (req, res) {

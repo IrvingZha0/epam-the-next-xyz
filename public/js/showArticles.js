@@ -1,7 +1,9 @@
 window.onload = function() {
 
-var pathname = window.location.pathname;
-var id=pathname.substring(pathname.length-1);
+/*var pathname = window.location.pathname;*/
+/*var id=pathname.substring(pathname.length-1);*/
+  var id = data.value._id;
+  console.log(data.value._id)
 
   $.ajax({
     url: '/api/articles'+'/'+id,
