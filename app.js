@@ -74,9 +74,9 @@ app.post('/register', function(req, res) {
   res.redirect('/dashboard');
 });
 
-var id = article._id;
-app.get('/article/id', function(req, res) {
-  res.locals.scripts.push('/js/showArticles.js');
+
+app.get('/article/:id', function(req, res) {
+  res.locals.scripts.push('/js/showEachArticles.js');
     res.render('article');
 });
 

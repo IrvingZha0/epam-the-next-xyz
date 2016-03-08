@@ -7,11 +7,39 @@
 	{{/each}}
 
 	<hr>
-
-	<button class="btn btn-inverse btn-lg">Add New Article</button>
 </div>
 
 <br>
+<div>
+  <form action="/addarticle" method="post">
+
+  <div class="form-group">
+    <label>Title</label>
+    <input name="name" type="name" class="form-control" id="title" placeholder="title">
+  </div>
+  <div class="form-group">
+    <label>Summary</label>
+    <input name="name" type="name" class="form-control" id="summary" placeholder="summary">
+  </div>
+  <div class="form-group">
+    <label>Date</label>
+    <input name="name" type="name" class="form-control" id="date" placeholder="YYYY-MM-DD">
+  </div>
+  <div class="form-group">
+    <label>Author</label>
+    <input name="name" type="name" class="form-control" id="author" placeholder="author">
+  </div>
+  <div class="form-group">
+    <label>Image URL</label>
+    <input name="name" type="name" class="form-control" id="image" placeholder="image URL">
+  </div>
+
+  <button class="btn btn-inverse btn-lg">Add New Article</button>
+
+  </form>
+</div>
+<br>
+
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Advanced TODO</h3>
