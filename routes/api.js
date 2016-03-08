@@ -25,6 +25,17 @@ router.get('/articles', function(req, res, next) {
     res.json(data);
   });
 });
+
+router.post('/articles', function(req, res, next) {
+	console.log(JSON.stringify(req.body) + "post article");
+	var article = new Article(req.body);
+	article.save(function(err, article) {
+		 if (err) return console.error(err);
+  	 console.log(article);
+	});
+});
+
+
 /*router.get('/articles/:id', function(req, res, next) {
 
 	var fs = require('fs');

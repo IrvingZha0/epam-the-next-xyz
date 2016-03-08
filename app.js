@@ -83,7 +83,8 @@ app.get('/article/:id', function(req, res) {
 
 // respond to the get request with dashboard page (and pass in some data into the template / note this will be rendered server-side)
 app.get('/dashboard', function (req, res) {
-    res.render('dashboard', {
+    res.locals.scripts.push('/js/dashboard.js');
+      res.render('dashboard', {
     	stuff: [{
 		    greeting: "Hello",
 		    subject: "World!"
@@ -91,6 +92,9 @@ app.get('/dashboard', function (req, res) {
     });
 });
 
+app.post('/dashboard', function (req, res, next) {
+
+})
 // the api (note that typically you would likely organize things a little differently to this)
 app.use('/api', api);
 
